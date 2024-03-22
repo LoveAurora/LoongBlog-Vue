@@ -6,6 +6,7 @@ Vue.use(Vuex)
 
 /** 状态定义 */
 export const state = {
+  
   loading: false,
   themeObj: 0,//主题
   keywords:'',//关键词
