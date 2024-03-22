@@ -31,7 +31,8 @@ export default {
     methods: { //事件处理器
         getList(){
             getAllLink().then((response)=>{
-                this.friendslink = response
+              this.friendslink = response
+              console.log(response);
             })
         }
     },
