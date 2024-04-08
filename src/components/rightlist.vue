@@ -106,7 +106,6 @@
   </div>
 </template>
 
-
 <script>
 import { hotArticleList } from "../api/article";
 export default {
@@ -152,9 +151,18 @@ export default {
       }, 30);
     },
     getHotArticleList() {
-      hotArticleList().then((response) => {
-        this.browseList = response;
-      });
+      hotArticleList()
+        .then((response) => {
+          if (response) {
+            this.browseList = response;
+            console.log(response);
+          } else {
+            console.log("获取热门文章失败");
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+        });
     },
   },
   components: {
@@ -182,7 +190,6 @@ export default {
     };
     //查询浏览量最多的10篇文章数据
     this.getHotArticleList();
-
   },
 };
 </script>
