@@ -36,9 +36,9 @@
 
               <div class="userInfo">
                 <div v-show="!haslogin" class="nologin">
-                  <a href="javascript:void(0);" @click="logoinFun(1)"
+                  <a href="javascript:void(0);" @click="loginFun(1)"
                     >登录&nbsp;</a
-                  >|<a href="javascript:void(0);" @click="logoinFun(0)"
+                  >|<a href="javascript:void(0);" @click="loginFun(0)"
                     >&nbsp;注册</a
                   >
                 </div>
@@ -115,7 +115,6 @@ export default {
       projectList: "", //项目列表
     };
   },
-  watch: {},
   methods: {
     //事件处理器
     handleOpen(key, keyPath) {
@@ -143,7 +142,7 @@ export default {
       //pc菜单选择
       //    console.log(key, keyPath);
     },
-    logoinFun: function (msg) {
+    loginFun: function (msg) {
       //用户登录和注册跳转
       // console.log(msg);
       localStorage.setItem("logUrl", this.$route.fullPath);
@@ -628,6 +627,7 @@ export default {
 .h-information h2 a {
   background: linear-gradient(to right, #df2050, #48456d);
   -webkit-background-clip: text;
+  background-clip: text;
   color: transparent;
 }
 .headImgBox .scene {
