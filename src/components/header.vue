@@ -597,6 +597,7 @@ export default {
   background: linear-gradient(to right, #df2050, #48456d);
   -webkit-background-clip: text;
   background-clip: text;
+  background-clip: text;
   -webkit-text-fill-color: transparent;
   color: transparent;
 }
