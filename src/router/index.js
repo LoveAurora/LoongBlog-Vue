@@ -23,59 +23,68 @@ export default new Router({
   routes: [
     {
       path: "/",
-      component: IOCSearch,
+      component: (resolve) => require(["../pages/Home.vue"], resolve),
       meta: {
         auth: true,
       },
       name: "Home",
-    },
+    }, //首页
     {
-      path: "/IOCDetails",
-      component: IOCDetails,
+      path: "/Home",
+      component: (resolve) => require(["../pages/Home.vue"], resolve),
       meta: {
         auth: true,
       },
-      name: "IOCDetails",
-    },
+      name: "Home",
+    }, //首页
     {
-      path: "/IOCExhibit",
-      component: IOCExhibit,
+      path: "/Share",
+      component: (resolve) => require(["../pages/Share.vue"], resolve),
       meta: {
         auth: true,
       },
-      name: "IOCExhibit",
-    }, // 首页
+      name: "Share",
+    }, //分类
     {
-      path: "/IOCSearch",
-      component: IOCSearch,
+      path: "/DetailArticle",
+      component: (resolve) => require(["../pages/DetailArticle.vue"], resolve),
       meta: {
         auth: true,
       },
-      name: "IOCSearch",
-    },
+      name: "DetailArticle",
+    }, //分享详情
     {
-      path: "/ThreatGang",
-      component: ThreatGang,
+      path: "/Reward",
+      component: (resolve) => require(["../pages/Reward.vue"], resolve),
       meta: {
         auth: true,
       },
-      name: "ThreatGang",
-    },
+      name: "Reward",
+    }, //赞赏
+    {
+      path: "/FriendsLink",
+      component: (resolve) => require(["../pages/FriendsLink.vue"], resolve),
+      meta: {
+        auth: true,
+      },
+      name: "FriendsLink",
+    }, //友链
+
     {
       path: "/Login",
-      component: Login,
+      component: (resolve) => require(["../pages/Login.vue"], resolve),
       meta: {
         auth: false,
       },
       name: "Login",
-    }, // 注册登录
+    }, //注册登录
     {
       path: "/UserInfo",
-      component: UserInfo,
+      component: (resolve) => require(["../pages/UserInfo.vue"], resolve),
       meta: {
         auth: true,
       },
       name: "UserInfo",
-    }, // 用户个人中心
+    }, //用户个人中心
   ],
 });

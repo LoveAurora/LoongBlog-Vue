@@ -34,31 +34,63 @@
                 ><i class="fa fa-wa fa-users"></i>友链</el-menu-item
               >
 
-            <div class="userInfo">
-              <div v-show="!haslogin.value" class="nologin">
-                <a href="javascript:void(0);" @click="loginFun(1)">登录&nbsp;</a
-                >|<a href="javascript:void(0);" @click="loginFun(0)"
-                  >&nbsp;注册</a
-                >
+              <div class="userInfo">
+                <div v-show="!haslogin" class="nologin">
+                  <a href="javascript:void(0);" @click="logoinFun(1)"
+                    >登录&nbsp;</a
+                  >|<a href="javascript:void(0);" @click="logoinFun(0)"
+                    >&nbsp;注册</a
+                  >
+                </div>
+                <div v-show="haslogin" class="haslogin">
+                  <i class="fa fa-fw fa-user-circle userImg"></i>
+                  <ul class="haslogin-info">
+                    <li>
+                      <a href="#/UserInfo">个人中心</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0);" @click="userlogout"
+                        >退出登录</a
+                      >
+                    </li>
+                  </ul>
+                </div>
               </div>
-              <div v-show="haslogin.value" class="haslogin">
-                <i class="fa fa-fw fa-user-circle userImg"></i>
-                <ul class="haslogin-info">
-                  <li>
-                    <a href="#/UserInfo">个人中心</a>
-                  </li>
-                  <li>
-                    <a href="javascript:void(0);" @click="userlogout"
-                      >退出登录</a
-                    >
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </el-menu>
-        </div>
-      </el-col>
-    </el-row>
+            </el-menu>
+          </div>
+        </el-col>
+      </el-row>
+    </div>
+    <div
+      class="headImgBox"
+      :style="{
+        backgroundImage: this.$store.state.themeObj.top_image
+          ? 'url(' + this.$store.state.themeObj.top_image + ')'
+          : 'url(static/img/headbg05.jpg)',
+      }"
+    >
+      <div class="scene">
+        <div><span id="luke"></span></div>
+      </div>
+      <div class="h-information">
+        <img
+          :src="
+            this.$store.state.themeObj.head_portrait
+              ? this.$store.state.themeObj.head_portrait
+              : 'static/img/tou.png'
+          "
+          alt=""
+        />
+
+        <h2 class="h-description">
+          {{
+            this.$store.state.themeObj.autograph
+              ? this.$store.state.themeObj.autograph
+              : "三更灯火五更鸡，正是男儿读书时"
+          }}
+        </h2>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -597,8 +629,6 @@ export default {
   background: linear-gradient(to right, #df2050, #48456d);
   -webkit-background-clip: text;
   background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
   color: transparent;
 }
 .headImgBox .scene {
